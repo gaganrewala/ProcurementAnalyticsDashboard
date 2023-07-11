@@ -11,17 +11,22 @@ import { Router } from '@angular/router';
 export class RegisterComponent {
   public registerForm !: FormGroup;
   constructor(private formBuilder:FormBuilder,private http:HttpClient,private router:Router){}
-
   ngOnInit():void{
     this.registerForm = this.formBuilder.group({
       fullname:[''],
       email:[''],
-      password:[''],
-      moile:['']
+      moile:[''],
+      password:['']
     })
   }
   register(){
-    alert("register working")
-    console.log(this.registerForm.value)
+    this.http.post<any>('http://localhost:3333/users',this.registerForm.value)
+    .subscribe(res=>{
+      alert("Register Successfull")
+      this.registerForm.reset()
+      this.router.navigate(['login'])
+    },err=>{
+      alert("Something Went Wrong !!")
+    })
   }
 }

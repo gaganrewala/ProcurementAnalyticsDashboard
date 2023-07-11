@@ -1,9 +1,32 @@
 {
-  "posts": [
+  "users": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "fullname": "gagan",
+      "email": "gaganr@gmail.com",
+      "password": "Gagannnnnn",
+      "moile": "",
+      "id": 1
+    },
+    {
+      "fullname": "zycus",
+      "email": "gagan.rewala@zycus.com",
+      "password": "qqqq",
+      "moile": "",
+      "id": 2
+    },
+    {
+      "fullname": "gagan",
+      "email": "gaganr@gmail.com",
+      "moile": "",
+      "password": "123",
+      "id": 3
+    },
+    {
+      "fullname": "gagan",
+      "email": "gagan@example1.com",
+      "moile": "",
+      "password": "11",
+      "id": 4
     }
   ],
   "comments": [
