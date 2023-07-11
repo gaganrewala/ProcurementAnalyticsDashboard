@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import {AuthService} from '../shared/auth.service'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,32 +9,27 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   public loginForm !: FormGroup
-
-  constructor(private formBuilder:FormBuilder,private http:HttpClient,private router:Router){}
-
-  ngOnInit():void{
+  constructor(private formBuilder:FormBuilder,private authService:AuthService,private router:Router){
     this.loginForm = this.formBuilder.group({
       email:[''],
       password:['']
     })
   }
-
-
-  login(){
-    this.http.get<any>('http://localhost:3333/users')
-    .subscribe(res=>{
-      const user =res.find((a:any)=>{
-        return a.password === this.loginForm.value.password && a.password === this.loginForm.value.password
-      });
-      if(user){
-        alert("Login Success !!");
-        this.loginForm.reset();
-        this.router.navigate(['dashboard'])
-      }else{
-        alert("User not Found !!")
+  onSubmit(){
+    const {email,password} = this.loginForm.value
+    this.authService.login().subscribe(
+      (response)=>{
+        const user = response.find((a:any)=>a.email===email && a.password===password);
+        if(user){
+          alert("Login Success !!")
+          this.loginForm.reset()
+          this.router.navigate(['dashboard',user.id])
+        }else{
+          alert("User not Found !!")
+        }
+      },error=>{
+        console.log("Something Wrong !!")
       }
-    },err=>{
-      alert("Something went wrong !!")
-    })
+    );
   }
 }

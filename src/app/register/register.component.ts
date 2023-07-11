@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
 import { FormGroup,FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import {AuthService} from '../shared/auth.service'
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,18 +9,18 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
   public registerForm !: FormGroup;
-  constructor(private formBuilder:FormBuilder,private http:HttpClient,private router:Router){}
-  ngOnInit():void{
+  constructor(private formBuilder:FormBuilder,private authService:AuthService,private router:Router){
     this.registerForm = this.formBuilder.group({
-      fullname:[''],
+      fname:[''],
+      lname:[''],
       email:[''],
-      moile:[''],
       password:['']
     })
   }
-  register(){
-    this.http.post<any>('http://localhost:3333/users',this.registerForm.value)
-    .subscribe(res=>{
+  
+  onSubmit(){
+    const userData = this.registerForm.value
+    this.authService.register(userData).subscribe(response=>{
       alert("Register Successfull")
       this.registerForm.reset()
       this.router.navigate(['login'])

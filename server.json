@@ -1,32 +1,32 @@
 {
   "users": [
     {
-      "fullname": "gagan",
-      "email": "gaganr@gmail.com",
-      "password": "Gagannnnnn",
-      "moile": "",
-      "id": 1
+      "fname": "gagan",
+      "lname": "gagan1",
+      "email": "gagan.rewala@zycus.com",
+      "password": "111",
+      "id": 5
     },
     {
-      "fullname": "zycus",
-      "email": "gagan.rewala@zycus.com",
-      "password": "qqqq",
-      "moile": "",
+      "fname": "uttAM",
+      "lname": "RE",
+      "email": "gaganeee.rewala@zycus.com",
+      "password": "111",
       "id": 2
     },
     {
-      "fullname": "gagan",
-      "email": "gaganr@gmail.com",
-      "moile": "",
-      "password": "123",
-      "id": 3
+      "fname": "Zycus",
+      "lname": "Pune",
+      "email": "zycus@gmail.com",
+      "password": "111",
+      "id": 6
     },
     {
-      "fullname": "gagan",
-      "email": "gagan@example1.com",
-      "moile": "",
-      "password": "11",
-      "id": 4
+      "fname": "demo",
+      "lname": "app",
+      "email": "email@gmail.com",
+      "password": "111",
+      "id": 7
     }
   ],
   "comments": [

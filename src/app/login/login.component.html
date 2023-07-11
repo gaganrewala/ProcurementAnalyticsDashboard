@@ -3,10 +3,10 @@
         <div class="col-6">
             <div class="card">
                 <div class="text-center">
-                    <h1>Sign Up</h1>
+                    <h1>Sign In</h1>
                     <h6>Please Enter email & password</h6>
                 </div>
-                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
                         <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

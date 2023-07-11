@@ -7,7 +7,7 @@ import {DashboardComponent} from './dashboard/dashboard.component'
 const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  {path:'dashboard',component:DashboardComponent},
+  {path:'dashboard/:userId',component:DashboardComponent},
   {path:'',redirectTo:'/login',pathMatch:'full'},
   {path:'**',redirectTo:'/login'},
 ];
