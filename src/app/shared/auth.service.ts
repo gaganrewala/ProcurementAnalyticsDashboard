@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+  private baseUrl = 'http://localhost:5000/api/data';
   constructor(private http:HttpClient) { }
   login():Observable<any>{
     return this.http.get('http://localhost:3333/users')
@@ -14,7 +15,9 @@ export class AuthService {
     return this.http.post('http://localhost:3333/users',registerData)
   }
   
-  getUserData(data:any):Observable<any>{
-    return this.http.get(`http://localhost:3333/users/${data}`)
+  getUserData(id:any):Observable<any>{
+    // return this.http.get(`http://localhost:8080/data/${data}`)
+    // const url = `${this.baseUrl}/${id}`;
+    return this.http.get<any>(this.baseUrl);
   }
 }
