@@ -23,7 +23,8 @@ export class LoginComponent {
         if(user){
           alert("Login Success !!")
           this.loginForm.reset()
-          this.router.navigate(['dashboard',user.id])
+          // this.router.navigate(['dashboard',user.id])
+          this.router.navigate(['dashboard'])
         }else{
           alert("User not Found !!")
         }

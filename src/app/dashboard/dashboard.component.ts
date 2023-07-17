@@ -18,7 +18,7 @@ export class DashboardComponent{
     this.authService.getUserData(this.userId).subscribe(
       (userData)=>{
         this.userData = userData;
-        console.log(this.userData)
+        // console.log(this.userData)
       },
       (err)=>{
         console.log("Failed to Retrieve user data")
