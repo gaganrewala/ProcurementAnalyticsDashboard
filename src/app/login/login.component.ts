@@ -16,11 +16,12 @@ export class LoginComponent {
     })
   }
   onSubmit(){
-    const {email,password} = this.loginForm.value
-    this.authService.login().subscribe(
+    const loginuser = this.loginForm.value
+    this.authService.login(loginuser).subscribe(
       (response)=>{
-        const user = response.find((a:any)=>a.email===email && a.password===password);
-        if(user){
+        console.log(response)
+        // const user = response.find((a:any)=>a.email===email && a.password===password);
+        if(response){
           alert("Login Success !!")
           this.loginForm.reset()
           // this.router.navigate(['dashboard',user.id])
