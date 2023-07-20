@@ -19,4 +19,14 @@ export class AuthService {
   logout(){
     localStorage.removeItem('jwtToken')
   }
+  updateUserData(updatedUser: any): Observable<any> {
+    const userId = updatedUser.id;
+    return this.http.put<any>(`https://examplenode.onrender.com/products/${userId}`, updatedUser);
+  }
+  deleteUserData(userId: string): Observable<any> {
+    return this.http.delete<any>(`https://examplenode.onrender.com/products/${userId}`);
+  }
+  createUser(user: any): Observable<any> {
+    return this.http.post<any>('https://examplenode.onrender.com/products', user);
+  }
 }
