@@ -10,6 +10,9 @@ import {AuthService} from '../shared/auth.service'
 export class LoginComponent {
   public loginForm !: FormGroup
   constructor(private formBuilder:FormBuilder,private authService:AuthService,private router:Router){
+    if(localStorage.getItem("jwtToken")){
+      router.navigate(['dashboard'])
+    }
     this.loginForm = this.formBuilder.group({
       email:[''],
       password:['']
@@ -19,16 +22,9 @@ export class LoginComponent {
     const loginuser = this.loginForm.value
     this.authService.login(loginuser).subscribe(
       (response)=>{
-        console.log(response)
-        // const user = response.find((a:any)=>a.email===email && a.password===password);
-        if(response){
-          alert("Login Success !!")
-          this.loginForm.reset()
-          // this.router.navigate(['dashboard',user.id])
-          this.router.navigate(['dashboard'])
-        }else{
-          alert("User not Found !!")
-        }
+        localStorage.setItem('jwtToken', response.token);
+        localStorage.setItem('role', response.role);
+        this.router.navigate(['dashboard'])
       },error=>{
         console.log("Something Wrong !!")
       }

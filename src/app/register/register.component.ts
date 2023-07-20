@@ -10,11 +10,13 @@ import {AuthService} from '../shared/auth.service'
 export class RegisterComponent {
   public registerForm !: FormGroup;
   constructor(private formBuilder:FormBuilder,private authService:AuthService,private router:Router){
+    if(localStorage.getItem("jwtToken")){
+      router.navigate(['dashboard'])
+    }
     this.registerForm = this.formBuilder.group({
-      fname:[''],
-      lname:[''],
       email:[''],
-      password:['']
+      password:[''],
+      roleId:[''],
     })
   }
   
