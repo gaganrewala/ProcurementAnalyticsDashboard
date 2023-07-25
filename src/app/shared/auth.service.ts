@@ -8,25 +8,30 @@ import { Observable } from 'rxjs';
 export class AuthService {
   constructor(private http:HttpClient) { }
   login(loginData:any):Observable<any>{
-  return this.http.post('https://examplenode.onrender.com/login',loginData)
+  return this.http.post(`https://examplenode.onrender.com/user/login`,loginData)
   }
   register(registerData:any):Observable<any>{
-    return this.http.post('https://examplenode.onrender.com/register',registerData)
+    return this.http.post('https://examplenode.onrender.com/user/register',registerData)
   }
   getUserData(id:any):Observable<any>{
-    return this.http.get(`https://examplenode.onrender.com/products`)
+    return this.http.get(`https://examplenode.onrender.com/api/products`)
   }
   logout(){
     localStorage.removeItem('jwtToken')
+    localStorage.removeItem('role')
   }
   updateUserData(updatedUser: any): Observable<any> {
     const userId = updatedUser.id;
-    return this.http.put<any>(`https://examplenode.onrender.com/products/${userId}`, updatedUser);
+    return this.http.put<any>(`https://examplenode.onrender.com/api/products/${userId}`, updatedUser);
   }
   deleteUserData(userId: string): Observable<any> {
-    return this.http.delete<any>(`https://examplenode.onrender.com/products/${userId}`);
+    return this.http.delete<any>(`https://examplenode.onrender.com/api/products/${userId}`);
   }
   createUser(user: any): Observable<any> {
-    return this.http.post<any>('https://examplenode.onrender.com/products', user);
+    return this.http.post<any>('https://examplenode.onrender.com/api/products', user);
+  }
+  getUser(userId:any): Observable<any> {
+    const url = `https://examplenode.onrender.com/api/products/${userId}`;
+    return this.http.get<any>(url);
   }
 }

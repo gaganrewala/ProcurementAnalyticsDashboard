@@ -9,9 +9,6 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <button class="btn btn-link nav-link" (click)="openCreateModal()">Create</button>
-                    </li>
-                    <li class="nav-item">
                         <button class="nav-link" (click)="logout()">Logout</button>
                     </li>
                 </ul>
@@ -20,29 +17,28 @@
     </div>
 </header>
 
-<main class="dashboard-main">
+
+<main class="dashboard-main" *ngIf="user">
     <div class="container">
-        <h1>User List</h1>
         <div class="row" id="userList">
-            <div class="col-md-6 col-lg-4" *ngFor="let item of userData">
+            <div class="col-md-6 col-lg-4">
                 <div class="user-card">
-                    <a [routerLink]="['/products', item.id]" class="user-card-link">
-                        <img src={{item.thumbnail}} alt="User Image">
-                    </a>
+                    <!-- <img src={{user.thumbnail}} alt="User Image"> -->
+                    <img  [src]="user?.thumbnail" alt="User Image">
                     <div class="card-body">
-                        <h5 class="card-title">{{item.title}}</h5>
-                        <p class="card-text">{{item.description}}</p>
+                        <h5 class="card-title">{{user.title}}</h5>
+                        <p class="card-text">{{user.description}}</p>
                         <div class="card-buttons" *ngIf="userRole==1">
-                            <button class="btn btn-primary" (click)="showUpdateModal(item)">Update</button>
-                            <button class="btn btn-danger" (click)="deleteUser(item.id)">Delete</button>
+                            <button class="btn btn-primary" (click)="showUpdateModal(user)">Update</button>
                         </div>
+                          <!-- Back button to go back to the dashboard -->
+                          <button class="btn btn-link" (click)="goBackToDashboard()">Back to Dashboard</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </main>
-
 
 <!-- Update Modal -->
 <div class="modal" [ngClass]="{ 'show': isUpdateModalOpen }">
@@ -64,32 +60,6 @@
                     </div>
                     <button type="submit" class="btn btn-success">Update</button>
                     <button type="button" class="btn btn-secondary" (click)="closeUpdateModal()">Cancel</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Create Modal -->
-<div class="modal" [ngClass]="{ 'show': isCreateModalOpen }">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Create User</h4>
-                <button type="button" class="close" (click)="closeCreateModal()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form [formGroup]="createForm" (submit)="createUser()">
-                    <div class="form-group">
-                        <label for="createTitle">Title</label>
-                        <input type="text" class="form-control" id="createTitle" formControlName="title">
-                    </div>
-                    <div class="form-group">
-                        <label for="createDescription">Description</label>
-                        <textarea class="form-control" id="createDescription" formControlName="description"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-success">Create</button>
-                    <button type="button" class="btn btn-secondary" (click)="closeCreateModal()">Cancel</button>
                 </form>
             </div>
         </div>

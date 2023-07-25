@@ -47,7 +47,6 @@ export class DashboardComponent {
 
   logout() {
     this.authService.logout()
-    localStorage.removeItem('role')
     this.route.navigate(['login'])
   }
   showUpdateModal(item: any) {
@@ -64,8 +63,6 @@ export class DashboardComponent {
   }
 
   updateUser() {
-    // Perform the update operation using the form values (this.updateForm.value)
-    // For example, you can call an API to update the user data on the server
     const updatedUser = {
       ...this.selectedUser,
       title: this.updateForm.get('title')?.value,

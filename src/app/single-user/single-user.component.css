@@ -1,0 +1,187 @@
+/* Header */
+.dashboard-header {
+    background-color: #f8f9fa;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-header .navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    font-weight: bold;
+    flex-grow: 1;
+}
+
+.dashboard-header .navbar-nav .nav-item .nav-link {
+    color: #000;
+    font-size: 16px;
+}
+
+.dashboard-header .navbar-nav .nav-item .nav-link:hover {
+    color: #0069d9;
+}
+
+/* Main */
+.dashboard-main {
+    padding: 20px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+
+.dashboard-main h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+.user-card {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.user-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.user-card .card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-card .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.user-card .card-text {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.user-card .card-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-card .card-buttons .btn {
+    font-size: 14px;
+    padding: 6px 12px;
+    margin: 5px;
+}
+
+
+/* Update Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal.show {
+    display: block;
+}
+
+.modal-dialog {
+    margin: 10% auto;
+    width: 80%;
+    max-width: 400px;
+}
+
+.modal-content {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.modal-header h4 {
+    margin: 0;
+}
+
+.modal-header button {
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 20px 0;
+}
+
+.modal-body form {
+    margin-bottom: 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn {
+    padding: 8px 16px;
+    margin-right: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #28a745;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #6c757d;
+}

@@ -7,13 +7,16 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms'
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthService } from './shared/auth.service';
+import { SingleUserComponent } from './single-user/single-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    SingleUserComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
